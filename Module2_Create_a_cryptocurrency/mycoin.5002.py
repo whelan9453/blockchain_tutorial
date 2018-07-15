@@ -106,8 +106,7 @@ blockchain = Blockchain()
 
 @app.route('/chain', methods=['GET'])
 def get_chain():
-    response = {'chain': blockchain.chain,
-                'length': len(blockchain.chain)}
+    response = {'chain': blockchain.chain, 'len': len(blockchain.chain)}
     return jsonify(response), 200
 
 
@@ -182,4 +181,4 @@ def use_longest_chain():
                         'current_chain': blockchain.chain}), 200
 
 
-app.run()
+app.run(port=5002)
